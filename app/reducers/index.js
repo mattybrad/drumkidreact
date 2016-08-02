@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import Entries from './Entries';
+import Beats from './Beats';
 
 const rootReducer = combineReducers({
-  Entries
+  Beats
 });
 
 export default rootReducer;

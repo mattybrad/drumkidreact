@@ -1,8 +1,8 @@
-import * as Actions from '../actions/EntryActions';
+import * as Actions from '../actions/BeatActions';
 
 export default function Entries(
   state = {
-    entries: []
+    beats: []
   },
   action
 ) {

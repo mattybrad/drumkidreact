@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
-import * as Actions from '../actions/EntryActions';
+import * as Actions from '../actions/BeatActions';
 import { Link } from 'react-router';
 
 const mapStateToProps = (state) => {
@@ -18,24 +18,24 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-class ListEntriesComponent extends React.Component {
+class BeatMatrixComponent extends React.Component {
   componentDidMount() {
 
   }
   render() {
     return (
       <div>
-        <h1 className="title">Testing </h1>
-        <NavBar activePage="listentries" />
+        <NavBar activePage="listbeats" />
+        <p>This will be a beat matrix</p>
       </div>
     )
   }
 }
 
 
-const ListEntries = connect(
+const BeatMatrix = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListEntriesComponent);
+)(BeatMatrixComponent);
 
-export default ListEntries;
+export default BeatMatrix;

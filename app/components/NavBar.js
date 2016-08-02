@@ -7,8 +7,9 @@ export default class NavBar extends React.Component {
       <div>
         <div className="nav">
           <div className="nav-left">
-            <Link className={"nav-item is-tab" + (this.props.activePage=="home" ? " is-active" : "")} to="/home">Home</Link>
-            <Link className={"nav-item is-tab" + (this.props.activePage=="listentries" ? " is-active" : "")} to="/listentries">List Entries</Link>
+            <Link to="/">Home</Link><span> </span>
+            <Link to="/listbeats">List Beats</Link><span> </span>
+            <Link to="/matrix">Matrix</Link><span> </span>
           </div>
         </div>
         <br/>
