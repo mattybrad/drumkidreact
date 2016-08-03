@@ -2,7 +2,8 @@ import * as Actions from '../actions/BeatActions';
 
 export default function Entries(
   state = {
-    beats: []
+    beats: [],
+    testFreq: 440
   },
   action
 ) {

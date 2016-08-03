@@ -1,13 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import NavBar from '../NavBar'
 import DrumKidPlayer from '../DrumKidPlayer'
 
-export default class Main extends React.Component {
+const mapStateToProps = (state) => {
+  return {
+    testFreq: state.Beats.testFreq
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+export default class MainComponent extends React.Component {
 	render() {
 		return (
 			<section className="section">
 				<NavBar />
-				<DrumKidPlayer />
+				<DrumKidPlayer freq={this.props.testFreq} />
 				<div className="container">
         	{this.props.children}
 				</div>
@@ -15,3 +28,10 @@ export default class Main extends React.Component {
 		)
 	}
 }
+
+const Main = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainComponent);
+
+export default Main;
