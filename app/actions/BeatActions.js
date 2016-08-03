@@ -24,6 +24,51 @@ export function failureFetchBeats(message) {
   }
 }
 
+export const REQUEST_FETCH_BEAT = 'REQUEST_FETCH_BEAT';
+export function requestFetchBeat() {
+  return {
+    type: REQUEST_FETCH_BEAT
+  }
+}
+
+export const SUCCESS_FETCH_BEAT = 'SUCCESS_FETCH_BEAT';
+export function successFetchBeat(beat) {
+  return {
+    type: SUCCESS_FETCH_BEAT,
+    beat
+  }
+}
+
+export const FAILURE_FETCH_BEAT = 'FAILURE_FETCH_BEAT';
+export function failureFetchBeat(message) {
+  return {
+    type: FAILURE_FETCH_BEAT,
+    message
+  }
+}
+
+export const REQUEST_CREATE_BEAT = 'REQUEST_CREATE_BEAT';
+export function requestCreateBeat() {
+  return {
+    type: REQUEST_CREATE_BEAT
+  }
+}
+
+export const SUCCESS_CREATE_BEAT = 'SUCCESS_CREATE_BEAT';
+export function successCreateBeat(beat) {
+  return {
+    type: SUCCESS_CREATE_BEAT
+  }
+}
+
+export const FAILURE_CREATE_BEAT = 'FAILURE_CREATE_BEAT';
+export function failureCreateBeat(message) {
+  return {
+    type: FAILURE_CREATE_BEAT,
+    message
+  }
+}
+
 export const REQUEST_DELETE_BEAT = 'REQUEST_DELETE_BEAT';
 export function requestDeleteBeat() {
   return {
@@ -50,6 +95,34 @@ export function fetchBeats() {
   return function(dispatch) {
     dispatch(requestFetchBeats());
     beats
+      .get()
+      .then(function(json) {
+        dispatch(successFetchBeats(json));
+      })
+      .catch(function(err) {
+        dispatch(failureFetchBeats(err.message));
+      })
+  }
+}
+
+export function createBeat(beatData) {
+  return function(dispatch) {
+    dispatch(requestCreateBeat());
+    beats
+      .post(beatData)
+      .then(function(json) {
+        dispatch(successCreateBeat(json));
+      })
+      .catch(function(err) {
+        dispatch(failureCreateBeat(err.message));
+      })
+  }
+}
+
+export function fetchBeat(beatID) {
+  return function(dispatch) {
+    dispatch(requestFetchBeats());
+    beats(beatID)
       .get()
       .then(function(json) {
         dispatch(successFetchBeats(json));

@@ -26,6 +26,7 @@ render(
       <Route path="" component={Main}>
         <Route path="/" component={Pages.Home} />
         <Route path="listbeats" component={Pages.ListBeats} />
+        <Route path="createbeat" component={Pages.BeatForm} />
         <Route path="matrix" component={Pages.BeatMatrix} />
         <Route path="*" component={Pages.NotFound} />
       </Route>

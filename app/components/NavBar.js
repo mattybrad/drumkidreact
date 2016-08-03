@@ -9,6 +9,7 @@ export default class NavBar extends React.Component {
           <div className="nav-left">
             <Link to="/">Home</Link><span> </span>
             <Link to="/listbeats">List Beats</Link><span> </span>
+            <Link to="/createbeat">Create Beat</Link><span> </span>
             <Link to="/matrix">Matrix</Link><span> </span>
           </div>
         </div>
