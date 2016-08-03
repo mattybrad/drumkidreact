@@ -1,7 +1,7 @@
 var Router = require('express').Router;
-var Entries = require('./Entries');
+var Beats = require('./Beats');
 var router = new Router();
 
-router.use('/api/v1/entries', Entries);
+router.use('/api/v1/beats', Beats);
 
 module.exports = router;

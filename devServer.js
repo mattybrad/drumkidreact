@@ -6,6 +6,7 @@ var webpack = require('webpack');
 var config = require('./webpack.config.js');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+mongoose.connect('mongodb://localhost/drumkid');
 
 var app = express();
 app.use(bodyParser.json());
