@@ -6,30 +6,31 @@ export default class DrumKidPlayer extends React.Component {
     this.state = {
 
     }
+    this.audioContext = null;
+    this.outputNode = null;
+    this.oscillator = null;
   }
   componentDidMount() {
-     var audioContext = new (AudioContext||webkitAudioContext)();
-     var outputNode = audioContext.createGain();
-     outputNode.connect(audioContext.destination);
-     outputNode.gain.value = 0.1;
-     this.setState({
-       audioContext,
-       outputNode
-     })
+     this.audioContext = new (AudioContext||webkitAudioContext)();
+     this.outputNode = this.audioContext.createGain();
+     this.outputNode.connect(this.audioContext.destination);
+     this.outputNode.gain.value = 0.1;
+  }
+  componentWillReceiveProps(nextProps) {
+    if(this.props.freq != nextProps.freq) {
+      if(this.oscillator) this.oscillator.frequency.value = nextProps.freq;
+    }
   }
   playBeat() {
     // temp thing to demonstrate web audio working
-    var oscillator = this.state.audioContext.createOscillator();
-    oscillator.type = 'square';
-    oscillator.frequency.value = 440;
-    oscillator.connect(this.state.outputNode);
-    oscillator.start();
-    this.setState({
-      oscillator
-    })
+    this.oscillator = this.audioContext.createOscillator();
+    this.oscillator.type = 'square';
+    this.oscillator.frequency.value = this.props.freq;
+    this.oscillator.connect(this.outputNode);
+    this.oscillator.start();
   }
   stopBeat() {
-    if(this.state.oscillator) this.state.oscillator.stop();
+    if(this.oscillator) this.oscillator.stop();
   }
   render() {
     return (
@@ -39,4 +40,8 @@ export default class DrumKidPlayer extends React.Component {
       </div>
     )
   }
+}
+
+DrumKidPlayer.defaultProps = {
+  freq: 220
 }
