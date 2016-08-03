@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchBeats: () => {
       dispatch(Actions.fetchBeats());
+    },
+    deleteBeat: (beatID) => {
+      dispatch(Actions.deleteBeat(beatID));
     }
   }
 }
@@ -24,7 +27,7 @@ class ListBeatsComponent extends React.Component {
   }
   deleteBeat(beatID) {
     var reallyDelete = confirm("Are you sure you want to delete this beat?"+beatID);
-    //if(reallyDelete) this.props.deleteEntry(beatID);
+    if(reallyDelete) this.props.deleteBeat(beatID);
   }
   render() {
     return (

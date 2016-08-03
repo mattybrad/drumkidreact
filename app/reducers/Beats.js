@@ -3,7 +3,8 @@ import * as Actions from '../actions/BeatActions';
 export default function Entries(
   state = {
     beats: [],
-    testFreq: 440
+    testFreq: 440,
+    isFetching: false
   },
   action
 ) {
