@@ -7,8 +7,14 @@ export default function Entries(
   action
 ) {
   switch(action.type) {
-    case Actions.TEST_ACTION:
-    return Object.assign({}, state, {myTestVar:"hello there"});
+    case Actions.REQUEST_FETCH_BEATS:
+    return Object.assign({}, state, {isFetching: true, labels: []});
+
+    case Actions.SUCCESS_FETCH_BEATS:
+    return Object.assign({}, state, {isFetching: false, beats: action.beats});
+
+    case Actions.FAILURE_FETCH_BEATS:
+    return Object.assign({}, state, {isFetching: false});
 
     default:
     return state

@@ -12,7 +12,6 @@ export default class NavBar extends React.Component {
             <Link to="/matrix">Matrix</Link><span> </span>
           </div>
         </div>
-        <br/>
       </div>
     )
   }

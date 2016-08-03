@@ -25,7 +25,6 @@ class BeatMatrixComponent extends React.Component {
   render() {
     return (
       <div>
-        <NavBar activePage="listbeats" />
         <p>This will be a beat matrix</p>
       </div>
     )
